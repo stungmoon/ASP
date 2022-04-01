@@ -1,0 +1,4 @@
+<link rel="stylesheet" href="https://use.typekit.net/kzm6huf.css">
+
+Primary Font: poppins | 300, 700
+Secondary Font: ivypresto-display | 400, 700
