@@ -1,5 +1,3 @@
-/* Background */
-
 * {
     box-sizing: border-box;
 }
@@ -9,7 +7,7 @@ body {
     height: 100vh;
     background-color: #E5E5E5;
     background-color: rgb(42, 42, 42);
-    background-image: url("assets/background.jpg");
+    background-image: url("./assets/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -27,13 +25,19 @@ body {
 
 h1 {
     font-family: IvyPresto-Display;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.2;
     margin: 0;
 }
 
+.content-text {
+    font-size: .9rem;
+    margin-bottom: 2em;
+}
+
 .subtitle {
+    font-size: .8rem;
     margin: 0;
     margin-bottom: 2em;
 }
@@ -42,44 +46,109 @@ h1 {
     display: block;
 }
 
-.content-text {
-    margin-bottom: 2em;
-}
-
-#clock {
-    font-size: 5rem;
+.clock {
+    font-size: 2.5rem;
     font-family: IvyPresto-Display;
     font-weight: 700;
     margin: 0;
 }
 
-/* Links */
+.digit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1em;
+}
 
-a {
-    color: #FFF;
+/* Icon links and submit button */
+
+#fa-icon {
+    height: 36px;
+    width: 24px;
+    line-height: 36px;
+}
+
+.icon {
+    color: #e1e1e1;
     padding: .5em;
     border: 1px solid #e1e1e1;
     border-radius: 50%;
     font-size: 1rem;
+    -webkit-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
 }
 
-.icon-list a:hover {
+.icon:hover {
     color: #00A986;
     border-color: #00A986;
+    padding: .7em;
+}
+
+.icon:focus {
+    color: #00A986;
+    outline: 1px solid #00A986;
+    border: none;
+    padding: .7em;
+}
+
+.logo-link {
+    -webkit-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.logo-link:hover,
+.logo-link:focus {
+    border-bottom: 2px solid #00A986;
+    outline: none;
+}
+
+input[type=email]:focus {
+    color: #00A986;
+    outline: 3px solid #00A986;
+    border: none;
+}
+
+button {
+    background-color: #00A986;
+    color: #FFF;
+    font-weight: 300;
+    border: 0;
+    border-radius: 24px;
+    padding: 1em 2em;
+    margin-bottom: 2em;
+    -webkit-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #007a62;
+}
+
+button:focus {
+    color: #e1e1e1;
+    outline: 3px solid #e1e1e1;
+    border: none;
+}
+
+button:active {
+    border: none;
+    outline: none;
+    transform: translate(2px, 2px);
 }
 
 /* Layout */
 
 main {
     margin: 0 3.5em;
-    /* overflow: auto; */
-}
-
-header {
-    padding-top: 2.5em;
-}
-
-main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,6 +159,38 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: start;
+    animation: fadeIn ease-in 1s;
+    -webkit-animation: fadeIn ease-in 1s;
+    -moz-animation: fadeIn ease-in 1s;
+    -o-animation: fadeIn ease-in 1s;
+    -ms-animation: fadeIn ease-in 1s;
+}
+
+/* Text fade in animation */
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+  
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+  
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+  
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
 }
 
 aside {
@@ -107,21 +208,31 @@ li {
     text-align: center;
 }
 
+.logo-section {
+    width: 70%;
+}
+
+.logo-image {
+    width: 3;
+}
+
 /* Countdown */
 
-#countdown-wrapper {
+.countdown-wrapper {
     display: flex;
     align-content: space-between;
     order: -1;
-    margin-bottom: 2em;
+    margin-top: 2em;
+    margin-bottom: 3em;
 }
 
-#clock-subtitle {
+.clock-subtitle {
+    font-size: .9rem;
     text-align: center;
     margin: 0;
 }
 
-/* Form */
+/* Form field */
 
 #email-field {
     background-color: #DDDDDD;
@@ -129,70 +240,67 @@ li {
     border: 0;
     border-radius: 24px;
     padding: 1em;
-    width: 26em;
+    width: 70%;
     margin-right: .6em;
     margin-bottom: 1em;
 }
 
-.placeholder-fix::-webkit-input-placeholder  {
-    color:#000;
-    -webkit-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
+.screenreader-label {
+    display: none;
 }
 
-.placeholder-fix::-moz-placeholder   {
-    color:#000;
-    -webkit-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-}
+@media(min-width: 820px) {
 
-.placeholder-fix:-moz-placeholder   {
-    color:#000;
-    -webkit-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-}
-
-#submit-btn {
-    background-color: #00A986;
-    color: #FFF;
-    border: 0;
-    border-radius: 24px;
-    padding: 1em 2em;
-    margin-bottom: 2em;
-}
-
-/* Icons */
-
-#icon {
-    height: 36px;
-    width: 24px;
-    line-height: 36px;
-}
-
-@media(min-width: 800px) {
     main {
         flex-direction: row;
     }
-
+    
+    aside {
+        width: 50%;
+    }
+    
     #main-content-wrapper {
+        width: 50%;
         height: 100vh;
-        justify-content: space-evenly;        
+        justify-content: space-around;        
     }
 
-    #main-content-wrapper, aside {
-        width: 50vw;
-    }
-
-    #countdown-wrapper {
+    .countdown-wrapper {
         order: 0;
+    }
+
+    .clock {
+        font-size: 3.5rem;
+    }
+
+    #email-field {
+        width: 50%;
+    }
+}
+
+@media(min-width: 1100px) {
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .logo-image {
+        width: 20vw;
+    }
+    
+    #main-content-wrapper {
+        width: 40vw;
+    }
+
+    aside {
+        width: 60%;
+    }
+
+    .clock {
+        font-size: 4.5rem;
+    }
+
+    #email-field {
+        width: 70%;
     }
 }
